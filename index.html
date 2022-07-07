@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapiens clicker</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<body onbeforeunload="return closingCode()">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+        <div class = 'game'>
+            <h1 id='total'>SCORE : 0</h1>
+            <h5 id="click" style="font-family:trebuchet MS;">LB/click: 1 | LB/sec: 0</h5>
+            <img class="round" src="https://decostones.ie/wp-content/uploads/2015/11/click-hand.png" width="150" onclick='clicked()'></img>
+            <br><br>
+            <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">0-main upgrade: 15</button>
+            <br><br>
+            <button id='cat' class="round" onclick='upgrade("clicker cat")' style="font-family:courier;">0-clicker cat: 25 | +1/sec</button>
+            <br><br>
+            <button id='worker' class="round" onclick='upgrade("worker")' style="font-family:courier;">0-worker: 250 | +15/sec</button><br><br>
+            <button class="settings" onclick="save()">Save</button>
+            <button class="settings" onclick="load()">Load</button>
+            <button class="settings" onclick="reset()">Reset</button><br><br>
+        </div>
+    </link>
+</body>
+</meta>
+
+</html>
