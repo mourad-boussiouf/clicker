@@ -126,6 +126,24 @@ function load() {
 
     reloadall();
 }
+//Réinitialise toutes les metrics du programme
+
+function reset() {
+    if (confirm("Votre progression sera perdue pour toujours. Veuillez confirmer O/N") === true) {
+        money = 0;
+        moneyup = 1;
+        msec = 0;
+        upcost = 10;
+        catcost = 25;
+        workercost = 6000;
+        catown = 0;
+        workerown = 0;
+        upown = 0;
+        catadd = 1;
+        workadd = 20;
+        reloadall();
+    }
+}
 
 
 
