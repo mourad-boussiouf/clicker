@@ -166,6 +166,40 @@ function myTimer() {
 setInterval(myTimer, 1000);
 
 
+//l'utilisateur clique sur l'image
+function clicked() {
+
+    money+=moneyup;
+    console.log(money);
+    document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+    document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+
+    if (money > 500000000)
+    {
+
+        if (alerted === false)
+        {
+            alert("Bravo, vous avez atteint 500,000,000 $. " +
+                "Fun fact : c'est plus que le record mondial du film le plus couteux jamais produit dans la vraie vie. (Pirates des caraïbes, 2011.)");
+                alerted = true;
+        }
+    }
+
+    if (money > 40000000000000)
+    {
+
+        if (alerted2 === false)
+        {
+            alert("Bravo, vos budgets de production représentent désormais 40,000,000,000,000 $ , soit autant que la capitalisation totale\n" +
+                "de la bourse américaine (le S&P 500).\n" +
+                "Mais c'est encore loin d'être suffisant pour monter vos artificers level 42... MWAHAHAHAHAHHAHAHAHAHAH");
+            alerted2 = true;
+        }
+    }
+
+}
+
+
 
 
 
