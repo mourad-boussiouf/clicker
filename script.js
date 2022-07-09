@@ -201,5 +201,18 @@ function clicked() {
 
 
 
+//l'utilisateur clique sur l'image
+function clicked() {
+
+    money+=moneyup;
+    console.log(upown);
+    document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+    document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
 
 
+
+
+
+
+    
+}
