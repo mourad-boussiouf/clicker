@@ -201,18 +201,89 @@ function clicked() {
 
 
 
-//l'utilisateur clique sur l'image
-function clicked() {
-
-    money+=moneyup;
-    console.log(upown);
-    document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
-    document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+//upgrade function
+function upgrade(name) {
 
 
 
+    if (name == "clicker cat") {
+        if (money >= catcost && catown <= 31) {
+
+            if (catown <= 6) {
+                msec += 10 * catadd;
+                catadd++;
+                cboost = 10;
+            } else if (catown == 7) {
+                msec += 10 * catadd;
+                catadd++;
+                cboost = 400;
+            } else if (catown <= 12) {
+                msec += 400 * catadd;
+                catadd++;
+                cboost = 400;
+            } else if (catown == 13) {
+                msec += 400 * catadd;
+                catadd++;
+                cboost = 6000;
+            } else if (catown <= 20) {
+                msec += 6000 * catadd;
+                catadd++;
+                cboost = 6000;
+            } else if (catown == 21) {
+                msec += 6000 * catadd;
+                catadd++;
+                cboost = 50000;}
+            else if (catown <= 28) {
+                msec += 50000 * catadd;
+                catadd++;
+                cboost = 50000;}
+            else if (catown == 28) {
+                msec += 50000 * catadd;
+                catadd++;
+                cboost = 500000;}
+            else if (catown <= 29) {
+                msec += 500000 * catadd;
+                catadd++;
+                cboost = 500000;}
+
+            else if (catown == 31) {
+                msec += 500000 * catadd;
+                catadd++;
+                cboost = 1500000;}
+
+            else {
+                msec += 1500000 * catadd;
+                catadd++;
+                cboost = 1500000;
+            }
+            catown += 1;
+            money -= catcost;
+            catcost = catcost * 2;
 
 
+            if (catown <= 1) {
+                document.getElementById("cat").innerHTML =
+                    catown + "🚓-Voiture: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+            }
+            else {
+                document.getElementById("cat").innerHTML =
+                    catown + "🚓-Voitures: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
 
-    
+                if(catown > 7 && catown < 23 ){
+                    document.getElementById("cat").innerHTML =
+                        catown + "🚛-Camions: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+
+                if(catown >= 22 && catown < 30){
+                    document.getElementById("cat").innerHTML =
+                        catown + "🚂-Locomotives: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+
+                else if(catown > 29) {
+                    document.getElementById("cat").innerHTML =
+                        catown + "🛸-Soucoupe volante: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+
+            }
+
+
+        }
+    }
 }
