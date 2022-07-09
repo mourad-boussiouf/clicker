@@ -145,6 +145,27 @@ function reset() {
     }
 }
 
+//fonction qui s'active tous les secs 166
+function myTimer() {
+    money += msec;
+    document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+    document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+
+    if (workerown == 23) {
+        document.getElementById("worker").innerHTML = "23" + "🚀-Fusées: MAX | +35% clique/sec";}
+
+    if (catown == 32) {
+        document.getElementById("cat").innerHTML =
+            "32" + "🛸-Soucoupe volante: MAX | +15% click/sec";}
+
+    if (upown == 42) {
+        document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +35% clique/sec";}
+    
+}
+
+setInterval(myTimer, 1000);
+
+
 
 
 
