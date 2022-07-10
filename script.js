@@ -15,6 +15,7 @@ catmax = 0;
 workmax = 0;
 var alerted = false;
 var alerted2 = false;
+var alerted3 = false;
 
 //ajoute une virgule tous les trois chiffres
 function addcomma(x) {
@@ -126,8 +127,8 @@ function load() {
 
     reloadall();
 }
-//Réinitialise toutes les metrics du programme
 
+//Réinitialise toutes les metrics du programme
 function reset() {
     if (confirm("Votre progression sera perdue pour toujours. Veuillez confirmer O/N") === true) {
         money = 0;
@@ -197,18 +198,26 @@ function clicked() {
         }
     }
 
+    if (money > 33000000000)
+    {
+
+        if (alerted3 === false)
+        {
+            alert("Bravo, vos budgets de production représentent désormais 33,000,000,000 $ , soit autant que le PIB du Liban."+
+                "Avec ce budget, vous allez pouvoir refaire LE LIBAN , EN GRAND !");
+
+            alerted3 = true;
+        }
+    }
+
+
 }
-
-
 
 //upgrade function
 function upgrade(name) {
-
-
-
     if (name == "clicker cat") {
-        if (money >= catcost && catown <= 31) {
 
+        if (money >= catcost && catown <= 31) {
             if (catown <= 6) {
                 msec += 10 * catadd;
                 catadd++;
@@ -232,29 +241,27 @@ function upgrade(name) {
             } else if (catown == 21) {
                 msec += 6000 * catadd;
                 catadd++;
-                cboost = 50000;}
+                cboost = 70000;}
             else if (catown <= 28) {
-                msec += 50000 * catadd;
+                msec += 70000 * catadd;
                 catadd++;
-                cboost = 50000;}
+                cboost = 70000;}
             else if (catown == 28) {
-                msec += 50000 * catadd;
+                msec += 70000 * catadd;
                 catadd++;
-                cboost = 500000;}
+                cboost = 800000;}
             else if (catown <= 29) {
-                msec += 500000 * catadd;
+                msec += 800000 * catadd;
                 catadd++;
-                cboost = 500000;}
-
+                cboost = 800000;}
             else if (catown == 31) {
-                msec += 500000 * catadd;
+                msec += 800000 * catadd;
                 catadd++;
-                cboost = 1500000;}
-
+                cboost = 3000000;}
             else {
-                msec += 1500000 * catadd;
+                msec += 3000000 * catadd;
                 catadd++;
-                cboost = 1500000;
+                cboost = 3000000;
             }
             catown += 1;
             money -= catcost;
@@ -283,7 +290,80 @@ function upgrade(name) {
 
             }
 
-
+     
+        }
+        else if (catown == 32 || catadd == 32) {
+            document.getElementById("cat").innerHTML =
+                "32" + "🛸-Soucoupe volante: MAX | +15% click/sec";
         }
     }
+
+    if (name == "worker") {
+
+        if (money >= workercost && workerown <= 22) {
+
+            if (workerown <= 5) {
+                msec += 100 * workadd;
+                workadd++;
+                wboost = 100;
+            } else if (workerown == 6) {
+                msec += 100 * workadd;
+                workadd++;
+                wboost = 15000;
+            } else if (workerown <= 11) {
+                msec += 15000 * workadd;
+                workadd++;
+                wboost = 15000;
+            } else if (workerown == 12) {
+                msec += 15000 * workadd;
+                workadd++;
+                wboost = 100000;
+            } else if (workerown <= 20) {
+                msec += 100000 * workadd;
+                workadd++;
+                wboost = 100000;
+            } else if (workerown == 22) {
+                msec += 100000 * workadd;
+                workadd++;
+                wboost = 1000000;
+            } else {
+                msec += 1000000 * workadd;
+                workadd++;
+                wboost = 1000000;
+            }
+            workerown += 1;
+            money -= workercost;
+            workercost = workercost * 2;
+
+            if (workerown <= 1 && workerown != 23) {
+                document.getElementById("worker").innerHTML =
+                    workerown + "🚁-Hélicoptère: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
+            }
+            else {
+                if (workerown != 23){
+                document.getElementById("worker").innerHTML =
+                    workerown + "🚁-Hélicoptères: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+
+                if(workerown > 12 && workerown < 21 ){
+                document.getElementById("worker").innerHTML =
+                    workerown + "🛩️-Avions: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+
+                else if(workerown > 20 && workerown != 23){
+                    document.getElementById("worker").innerHTML =
+                        workerown + "🚀-Fusées: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+            }
+
+
+
+        }
+
+
+        else if (workerown == 23) {
+            document.getElementById("worker").innerHTML = "23" + "🚀-Fusées: MAX | +35% clique/sec";}
+
+
+    }
 }
+
+
+
