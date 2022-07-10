@@ -165,7 +165,7 @@ function myTimer() {
 
     if (upown == 20) {
         document.getElementById("upgrade").innerHTML =
-            addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + "| Triple vos $/clique" ;
+            addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + " | Triple vos $/clique" ;
         }
     
 }
@@ -354,7 +354,7 @@ function upgrade(name) {
             }
             workerown += 1;
             money -= workercost;
-            workercost = workercost * 2;
+            workercost = workercost * 1.5;
 
             if (workerown <= 1 && workerown != 23) {
                 document.getElementById("worker").innerHTML =
@@ -395,10 +395,10 @@ function upgrade(name) {
 
                 if(upown <= 1 && upown < 21){
             document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "👷‍♀️‍-Artificer: " + addcomma(upcost) + "| Double vos $/clique"; }
+                    addcomma(upown) + "👷‍♀️‍-Artificer: " + addcomma(upcost) + " | Double vos $/clique"; }
                 else if (upown > 1 && upown < 21) {
                     document.getElementById("upgrade").innerHTML =
-                        addcomma(upown) + "👷‍♀️‍-Artificers: " + addcomma(upcost) + "| Double vos $/clique"; }
+                        addcomma(upown) + "👷‍♀️‍-Artificers: " + addcomma(upcost) + " | Double vos $/clique"; }
             }
              else if (upown == 20) {
                 moneyup += moneyup * 2;
@@ -406,7 +406,7 @@ function upgrade(name) {
                 upown += 1;
                 upcost = upcost * 2;
                 document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + "| Triple vos $/clique" ;
+                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + " | Triple vos $/clique" ;
 
             } else if (upown <= 41) {
                 moneyup += moneyup * 2;
@@ -414,7 +414,7 @@ function upgrade(name) {
                 upown += 1;
                 upcost = upcost * 4;
                 document.getElementById("upgrade").innerHTML =
-                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost)+ "| Triple vos $/clique" ;
+                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost)+ " | Triple vos $/clique" ;
             } else if (upown == 42) {
                 moneyup = moneyup;
                 upown = 42;
