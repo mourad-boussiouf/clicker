@@ -157,7 +157,7 @@ function myTimer() {
 
     if (catown == 32) {
         document.getElementById("cat").innerHTML =
-            "32" + "🛸-Soucoupes volantes: MAX | + 42m$/clique";}
+            "32" + "🛸-Soucoupes volantes: MAX | + 42M$/clique";}
 
     if (upown == 42) {
         document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +70% ninja vibe";
@@ -299,7 +299,7 @@ function upgrade(name) {
 
                 else if (catown == 32) {
                     document.getElementById("cat").innerHTML =
-                    "32" + "🛸-Soucoupes volantes: MAX | + 42m$/clique";
+                    "32" + "🛸-Soucoupes volantes: MAX | + 42M$/clique";
                     
                     moneyup += 42000000;
                         }
