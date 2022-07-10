@@ -3,7 +3,7 @@ moneyup = 1;
 msec = 0;
 upcost = 10;
 catcost = 25;
-workercost = 6000;
+workercost = 10000;
 upown = 0;
 catown = 0;
 workerown = 0;
@@ -60,7 +60,7 @@ function reloadall() {
 
         else if(catown > 29) {
             document.getElementById("cat").innerHTML =
-                catown + "🛸-Soucoupe volante: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+                catown + "🛸-Soucoupes volantes: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
 
     }
     //PARTIE HELICO
@@ -79,7 +79,7 @@ function reloadall() {
 
         else if(workerown > 20 && workerown != 23){
             document.getElementById("worker").innerHTML =
-                workerown + "🚀-Fusées: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+                workerown + "🚀-Fusée: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
     }
 
     //PARTIE ARTIFICERS DANS CLICKED FUNCTION
@@ -136,7 +136,7 @@ function reset() {
         msec = 0;
         upcost = 10;
         catcost = 25;
-        workercost = 6000;
+        workercost = 10000;
         catown = 0;
         workerown = 0;
         upown = 0;
@@ -153,14 +153,20 @@ function myTimer() {
     document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
 
     if (workerown == 23) {
-        document.getElementById("worker").innerHTML = "23" + "🚀-Fusées: MAX | +35% clique/sec";}
+        document.getElementById("worker").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";}
 
     if (catown == 32) {
         document.getElementById("cat").innerHTML =
-            "32" + "🛸-Soucoupe volante: MAX | +15% click/sec";}
+            "32" + "🛸-Soucoupes volantes: MAX | + 42m$/clique";}
 
     if (upown == 42) {
-        document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +35% clique/sec";}
+        document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +70% ninja vibe";}
+
+
+    if (upown == 20) {
+        document.getElementById("upgrade").innerHTML =
+            addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + "| Triple vos $/clique" ;
+        }
     
 }
 
@@ -241,31 +247,32 @@ function upgrade(name) {
             } else if (catown == 21) {
                 msec += 6000 * catadd;
                 catadd++;
-                cboost = 70000;}
+                cboost = 130000; }
             else if (catown <= 28) {
-                msec += 70000 * catadd;
+                msec += 130000 * catadd;
                 catadd++;
-                cboost = 70000;}
-            else if (catown == 28) {
-                msec += 70000 * catadd;
+                cboost = 130000;}
+            else if (catown == 29) {
+                msec += 130000 * catadd;
                 catadd++;
                 cboost = 800000;}
-            else if (catown <= 29) {
+            else if (catown <= 30) {
                 msec += 800000 * catadd;
                 catadd++;
                 cboost = 800000;}
-            else if (catown == 31) {
+            else if (catown == 31 ) {
                 msec += 800000 * catadd;
                 catadd++;
-                cboost = 3000000;}
+                cboost = 4000000;}
             else {
-                msec += 3000000 * catadd;
+                msec += 4000000 * catadd;
                 catadd++;
-                cboost = 3000000;
+                cboost = 4000000;
             }
             catown += 1;
             money -= catcost;
             catcost = catcost * 2;
+
 
 
             if (catown <= 1) {
@@ -284,18 +291,22 @@ function upgrade(name) {
                     document.getElementById("cat").innerHTML =
                         catown + "🚂-Locomotives: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
 
-                else if(catown > 29) {
+                else if(catown > 29 && catown != 32) {
                     document.getElementById("cat").innerHTML =
-                        catown + "🛸-Soucoupe volante: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+                        catown + "🛸-Soucoupes volantes: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+
+                else if (catown == 32) {
+                    document.getElementById("cat").innerHTML =
+                    "32" + "🛸-Soucoupes volantes: MAX | + 42m$/clique";
+                    
+                    moneyup += 42000000;
+                        }
 
             }
 
      
         }
-        else if (catown == 32 || catadd == 32) {
-            document.getElementById("cat").innerHTML =
-                "32" + "🛸-Soucoupe volante: MAX | +15% click/sec";
-        }
+
     }
 
     if (name == "worker") {
@@ -317,19 +328,29 @@ function upgrade(name) {
             } else if (workerown == 12) {
                 msec += 15000 * workadd;
                 workadd++;
-                wboost = 100000;
+                wboost = 150000;
             } else if (workerown <= 20) {
-                msec += 100000 * workadd;
+                msec += 150000 * workadd;
                 workadd++;
-                wboost = 100000;
+                wboost = 150000;
+            } else if (workerown == 21) {
+                msec += 150000 * workadd;
+                workadd++;
+                wboost = 3000000;
+            } else if (workerown <= 22) {
+                msec += 3000000 * workadd;
+                workadd++;
+                wboost = 3000000;
             } else if (workerown == 22) {
-                msec += 100000 * workadd;
+                msec += 3000000 * workadd;
                 workadd++;
-                wboost = 1000000;
-            } else {
-                msec += 1000000 * workadd;
+                wboost = 5000000;
+            }
+             else {
+                msec += 5000000 * workadd;
                 workadd++;
-                wboost = 1000000;
+                wboost = 5000000;
+
             }
             workerown += 1;
             money -= workercost;
@@ -344,26 +365,72 @@ function upgrade(name) {
                 document.getElementById("worker").innerHTML =
                     workerown + "🚁-Hélicoptères: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
 
-                if(workerown > 12 && workerown < 21 ){
+                if(workerown > 12 && workerown <= 21 ){
                 document.getElementById("worker").innerHTML =
                     workerown + "🛩️-Avions: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
 
-                else if(workerown > 20 && workerown != 23){
+                else if(workerown > 21 && workerown != 23){
                     document.getElementById("worker").innerHTML =
-                        workerown + "🚀-Fusées: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+                        workerown + "🚀-Fusée: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
             }
 
 
 
         }
-
-
         else if (workerown == 23) {
-            document.getElementById("worker").innerHTML = "23" + "🚀-Fusées: MAX | +35% clique/sec";}
-
-
+            document.getElementById("worker").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";
+        }
     }
+
+    
+    if (name == "upgrade") {
+
+        if (money >= upcost && upown <= 42) {
+            //les 21 premiers artificers sont des non-experts
+            if(upown <= 19) {
+            moneyup += moneyup * 1;
+            money -= upcost;
+            upown += 1;
+            upcost = upcost * 3;
+
+                if(upown <= 1 && upown < 21){
+            document.getElementById("upgrade").innerHTML =
+                    addcomma(upown) + "👷‍♀️‍-Artificer: " + addcomma(upcost) + "| Double vos $/clique"; }
+                else if (upown > 1 && upown < 21) {
+                    document.getElementById("upgrade").innerHTML =
+                        addcomma(upown) + "👷‍♀️‍-Artificers: " + addcomma(upcost) + "| Double vos $/clique"; }
+            }
+             else if (upown == 20) {
+                moneyup += moneyup * 2;
+                money -= upcost;
+                upown += 1;
+                upcost = upcost * 2;
+                document.getElementById("upgrade").innerHTML =
+                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost) + "| Triple vos $/clique" ;
+
+            } else if (upown <= 41) {
+                moneyup += moneyup * 2;
+                money -= upcost;
+                upown += 1;
+                upcost = upcost * 4;
+                document.getElementById("upgrade").innerHTML =
+                    addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost)+ "| Triple vos $/clique" ;
+            } else if (upown == 42) {
+                moneyup = moneyup;
+                upown = 42;
+                document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAXXX | allah akbar  ";
+                document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
+            }
+        }
+    }
+    document.getElementById("click").innerHTML =
+        "$/clique: " + addcomma(moneyup) + " | $/sec: " + addcomma(msec);
+    document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
 }
+
+
+
+
 
 
 
