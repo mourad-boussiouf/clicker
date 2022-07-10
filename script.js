@@ -160,7 +160,9 @@ function myTimer() {
             "32" + "🛸-Soucoupes volantes: MAX | + 42m$/clique";}
 
     if (upown == 42) {
-        document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +70% ninja vibe";}
+        document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAX | +70% ninja vibe";
+        document.getElementById("instructions").innerHTML = "<h2>GAME OVER , FÉLICITATION VOUS AVEZ GAGNÉ LA PARTIE !</h2>";
+    }
 
 
     if (upown == 20) {
@@ -199,7 +201,7 @@ function clicked() {
         {
             alert("Bravo, vos budgets de production représentent désormais 40,000,000,000,000 $ , soit autant que la capitalisation totale\n" +
                 "de la bourse américaine (le S&P 500).\n" +
-                "Mais c'est encore loin d'être suffisant pour monter vos artificers level 42... MWAHAHAHAHAHHAHAHAHAHAH");
+                "Mais c'est encore insuffisant pour monter vos artificers level 42...");
             alerted2 = true;
         }
     }
@@ -354,7 +356,7 @@ function upgrade(name) {
             }
             workerown += 1;
             money -= workercost;
-            workercost = workercost * 1.5;
+            workercost = workercost * 2;
 
             if (workerown <= 1 && workerown != 23) {
                 document.getElementById("worker").innerHTML =
@@ -416,6 +418,7 @@ function upgrade(name) {
                 document.getElementById("upgrade").innerHTML =
                     addcomma(upown) + "👩‍🏭-Éxperts artificiers: " + addcomma(upcost)+ " | Triple vos $/clique" ;
             } else if (upown == 42) {
+            
                 moneyup = moneyup;
                 upown = 42;
                 document.getElementById("upgrade").innerHTML = "42" + "🧕-Éxperts artificiers: MAXXX | allah akbar  ";
