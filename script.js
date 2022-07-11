@@ -179,7 +179,6 @@ setInterval(myTimer, 1000);
 function clicked() {
 
     money+=moneyup;
-    console.log(money);
     document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
     document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
 
