@@ -2,17 +2,17 @@ money = 0;
 moneyup = 1;
 msec = 0;
 upcost = 10;
-catcost = 25;
-workercost = 10000;
+carcost = 25;
+helicost = 10000;
 upown = 0;
-catown = 0;
-workerown = 0;
-catadd = 1;
-workadd = 20;
+carown = 0;
+heliown = 0;
+caradd = 1;
+heliadd = 20;
 cboost = 1;
-wboost = 50;
-catmax = 0;
-workmax = 0;
+hboost = 50;
+carmax = 0;
+helimax = 0;
 var alerted = false;
 var alerted2 = false;
 var alerted3 = false;
@@ -27,59 +27,59 @@ function reloadall() {
     document.getElementById("click").innerHTML =
         "$/clique: " + addcomma(moneyup) + " | $/sec: " + addcomma(msec);
     document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
-    document.getElementById("cat").innerHTML =
-        catown + "🚓-Voiture: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
-    if (workerown > 1){
-        document.getElementById("worker").innerHTML =
-            workerown + "🚁-Hélicoptères: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
+    document.getElementById("car").innerHTML =
+        carown + "🚓-Voiture: " + addcomma(carcost) + " | +" + addcomma(caradd) + "/sec";
+    if (heliown > 1){
+        document.getElementById("heli").innerHTML =
+            heliown + "🚁-Hélicoptères: " + addcomma(helicost) + " | +" + addcomma(heliadd) + "/sec";
     }
-    else if (workerown < 1){
-        document.getElementById("worker").innerHTML =
-            workerown + "🚁-Hélicoptère: " + addcomma(workercost) + " | +" + "2000" + "/sec";
+    else if (heliown < 1){
+        document.getElementById("heli").innerHTML =
+            heliown + "🚁-Hélicoptère: " + addcomma(helicost) + " | +" + "2000" + "/sec";
     }
     document.getElementById("upgrade").innerHTML =
         addcomma(upown) + "👷‍♀️0-Artificier: " + addcomma(upcost) + "| Double vos $/clique";
 
 // si la partie est reload, il faut rafraichir l'affichage en adéquation avec les données de la sauvegarde
     //PARTIE VOITURES
-    if (catown <= 1) {
-        document.getElementById("cat").innerHTML =
-            catown + "🚓-Voiture: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+    if (carown <= 1) {
+        document.getElementById("car").innerHTML =
+            carown + "🚓-Voiture: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";
     }
     else {
-        document.getElementById("cat").innerHTML =
-            catown + "🚓-Voitures: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+        document.getElementById("car").innerHTML =
+            carown + "🚓-Voitures: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";
 
-        if(catown > 7 && catown < 23 ){
-            document.getElementById("cat").innerHTML =
-                catown + "🚛-Camions: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+        if(carown > 7 && carown < 23 ){
+            document.getElementById("car").innerHTML =
+                carown + "🚛-Camions: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";}
 
-        if(catown >= 22 && catown < 30){
-            document.getElementById("cat").innerHTML =
-                catown + "🚂-Locomotives: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+        if(carown >= 22 && carown < 30){
+            document.getElementById("car").innerHTML =
+                carown + "🚂-Locomotives: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";}
 
-        else if(catown > 29) {
-            document.getElementById("cat").innerHTML =
-                catown + "🛸-Soucoupes volantes: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+        else if(carown > 29) {
+            document.getElementById("car").innerHTML =
+                carown + "🛸-Soucoupes volantes: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec"; }
 
     }
     //PARTIE HELICO
-    if (workerown <= 1 && workerown != 23) {
-        document.getElementById("worker").innerHTML =
-            workerown + "🚁-Hélicoptère: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
+    if (heliown <= 1 && heliown != 23) {
+        document.getElementById("heli").innerHTML =
+            heliown + "🚁-Hélicoptère: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";
     }
     else {
-        if (workerown != 23){
-            document.getElementById("worker").innerHTML =
-                workerown + "🚁-Hélicoptères: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+        if (heliown != 23){
+            document.getElementById("heli").innerHTML =
+                heliown + "🚁-Hélicoptères: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
 
-        if(workerown > 12 && workerown < 21 ){
-            document.getElementById("worker").innerHTML =
-                workerown + "🛩️-Avions: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+        if(heliown > 12 && heliown < 21 ){
+            document.getElementById("heli").innerHTML =
+                heliown + "🛩️-Avions: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
 
-        else if(workerown > 20 && workerown != 23){
-            document.getElementById("worker").innerHTML =
-                workerown + "🚀-Fusée: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+        else if(heliown > 20 && heliown != 23){
+            document.getElementById("heli").innerHTML =
+                heliown + "🚀-Fusée: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
     }
 
     //PARTIE ARTIFICERS DANS CLICKED FUNCTION
@@ -91,19 +91,19 @@ function save() {
     localStorage.setItem("moneyup", moneyup);
     localStorage.setItem("msec", msec);
     localStorage.setItem("upcost", upcost);
-    localStorage.setItem("catcost", catcost);
-    localStorage.setItem("catadd", catadd);
-    localStorage.setItem("workercost", workercost);
-    localStorage.setItem("workadd", workadd);
-    localStorage.setItem("catown", catown);
-    localStorage.setItem("workerown", workerown);
+    localStorage.setItem("carcost", carcost);
+    localStorage.setItem("caradd", caradd);
+    localStorage.setItem("helicost", helicost);
+    localStorage.setItem("heliadd", heliadd);
+    localStorage.setItem("carown", carown);
+    localStorage.setItem("heliown", heliown);
     localStorage.setItem("upown", upown);
-    localStorage.setItem("catadd", catadd);
-    localStorage.setItem("workadd", workadd);
+    localStorage.setItem("caradd", caradd);
+    localStorage.setItem("heliadd", heliadd);
     localStorage.setItem("cboost", cboost);
-    localStorage.setItem("wboost", wboost);
-    localStorage.setItem("catmax", catmax);
-    localStorage.setItem("workmax", workmax);
+    localStorage.setItem("hboost", hboost);
+    localStorage.setItem("carmax", carmax);
+    localStorage.setItem("helimax", helimax);
 }
 //loads save file
 function load() {
@@ -111,19 +111,19 @@ function load() {
     moneyup = parseInt(localStorage.getItem("moneyup"));
     msec = parseInt(localStorage.getItem("msec"));
     upcost = parseInt(localStorage.getItem("upcost"));
-    catcost = parseInt(localStorage.getItem("catcost"));
-    upown = parseInt(localStorage.getItem("catadd"));
-    workercost = parseInt(localStorage.getItem("workercost"));
-    upown = parseInt(localStorage.getItem("workadd"));
-    catown = parseInt(localStorage.getItem("catown"));
-    workerown = parseInt(localStorage.getItem("workerown"));
+    carcost = parseInt(localStorage.getItem("carcost"));
+    upown = parseInt(localStorage.getItem("caradd"));
+    helicost = parseInt(localStorage.getItem("helicost"));
+    upown = parseInt(localStorage.getItem("heliadd"));
+    carown = parseInt(localStorage.getItem("carown"));
+    heliown = parseInt(localStorage.getItem("heliown"));
     upown = parseInt(localStorage.getItem("upown"));
-    catadd = parseInt(localStorage.getItem("catadd"));
-    workadd = parseInt(localStorage.getItem("workadd"));
+    caradd = parseInt(localStorage.getItem("caradd"));
+    heliadd = parseInt(localStorage.getItem("heliadd"));
     cboost = parseInt(localStorage.getItem("cboost"));
-    wboost = parseInt(localStorage.getItem("wboost"));
-    catmax = parseInt(localStorage.getItem("catmax"));
-    workmax = parseInt(localStorage.getItem("workmax"));
+    hboost = parseInt(localStorage.getItem("hboost"));
+    carmax = parseInt(localStorage.getItem("carmax"));
+    helimax = parseInt(localStorage.getItem("helimax"));
 
     reloadall();
 }
@@ -135,13 +135,13 @@ function reset() {
         moneyup = 1;
         msec = 0;
         upcost = 10;
-        catcost = 25;
-        workercost = 10000;
-        catown = 0;
-        workerown = 0;
+        carcost = 25;
+        helicost = 10000;
+        carown = 0;
+        heliown = 0;
         upown = 0;
-        catadd = 1;
-        workadd = 20;
+        caradd = 1;
+        heliadd = 20;
         reloadall();
     }
 }
@@ -152,11 +152,11 @@ function myTimer() {
     document.getElementById("total").innerHTML = "Budgets de production: " + addcomma(money) + " $";
     document.getElementById("total2").innerHTML = "Budgets de production: " + addcomma(money) + " $";
 
-    if (workerown == 23) {
-        document.getElementById("worker").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";}
+    if (heliown == 23) {
+        document.getElementById("heli").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";}
 
-    if (catown == 32) {
-        document.getElementById("cat").innerHTML =
+    if (carown == 32) {
+        document.getElementById("car").innerHTML =
             "32" + "🛸-Soucoupes volantes: MAX | + 42M$/clique";}
 
     if (upown == 42) {
@@ -222,82 +222,82 @@ function clicked() {
 
 //upgrade function
 function upgrade(name) {
-    if (name == "clicker cat") {
+    if (name == "clicker car") {
 
-        if (money >= catcost && catown <= 31) {
-            if (catown <= 6) {
-                msec += 10 * catadd;
-                catadd++;
+        if (money >= carcost && carown <= 31) {
+            if (carown <= 6) {
+                msec += 10 * caradd;
+                caradd++;
                 cboost = 10;
-            } else if (catown == 7) {
-                msec += 10 * catadd;
-                catadd++;
+            } else if (carown == 7) {
+                msec += 10 * caradd;
+                caradd++;
                 cboost = 400;
-            } else if (catown <= 12) {
-                msec += 400 * catadd;
-                catadd++;
+            } else if (carown <= 12) {
+                msec += 400 * caradd;
+                caradd++;
                 cboost = 400;
-            } else if (catown == 13) {
-                msec += 400 * catadd;
-                catadd++;
+            } else if (carown == 13) {
+                msec += 400 * caradd;
+                caradd++;
                 cboost = 6000;
-            } else if (catown <= 20) {
-                msec += 6000 * catadd;
-                catadd++;
+            } else if (carown <= 20) {
+                msec += 6000 * caradd;
+                caradd++;
                 cboost = 6000;
-            } else if (catown == 21) {
-                msec += 6000 * catadd;
-                catadd++;
+            } else if (carown == 21) {
+                msec += 6000 * caradd;
+                caradd++;
                 cboost = 130000; }
-            else if (catown <= 28) {
-                msec += 130000 * catadd;
-                catadd++;
+            else if (carown <= 28) {
+                msec += 130000 * caradd;
+                caradd++;
                 cboost = 130000;}
-            else if (catown == 29) {
-                msec += 130000 * catadd;
-                catadd++;
+            else if (carown == 29) {
+                msec += 130000 * caradd;
+                caradd++;
                 cboost = 800000;}
-            else if (catown <= 30) {
-                msec += 800000 * catadd;
-                catadd++;
+            else if (carown <= 30) {
+                msec += 800000 * caradd;
+                caradd++;
                 cboost = 800000;}
-            else if (catown == 31 ) {
-                msec += 800000 * catadd;
-                catadd++;
+            else if (carown == 31 ) {
+                msec += 800000 * caradd;
+                caradd++;
                 cboost = 4000000;}
             else {
-                msec += 4000000 * catadd;
-                catadd++;
+                msec += 4000000 * caradd;
+                caradd++;
                 cboost = 4000000;
             }
-            catown += 1;
-            money -= catcost;
-            catcost = catcost * 2;
+            carown += 1;
+            money -= carcost;
+            carcost = carcost * 2;
 
 
 
-            if (catown <= 1) {
-                document.getElementById("cat").innerHTML =
-                    catown + "🚓-Voiture: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+            if (carown <= 1) {
+                document.getElementById("car").innerHTML =
+                    carown + "🚓-Voiture: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";
             }
             else {
-                document.getElementById("cat").innerHTML =
-                    catown + "🚓-Voitures: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+                document.getElementById("car").innerHTML =
+                    carown + "🚓-Voitures: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";
 
-                if(catown > 7 && catown < 23 ){
-                    document.getElementById("cat").innerHTML =
-                        catown + "🚛-Camions: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+                if(carown > 7 && carown < 23 ){
+                    document.getElementById("car").innerHTML =
+                        carown + "🚛-Camions: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";}
 
-                if(catown >= 22 && catown < 30){
-                    document.getElementById("cat").innerHTML =
-                        catown + "🚂-Locomotives: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";}
+                if(carown >= 22 && carown < 30){
+                    document.getElementById("car").innerHTML =
+                        carown + "🚂-Locomotives: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec";}
 
-                else if(catown > 29 && catown != 32) {
-                    document.getElementById("cat").innerHTML =
-                        catown + "🛸-Soucoupes volantes: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec"; }
+                else if(carown > 29 && carown != 32) {
+                    document.getElementById("car").innerHTML =
+                        carown + "🛸-Soucoupes volantes: " + addcomma(carcost) + " | +" + addcomma(caradd * cboost) + "/sec"; }
 
-                else if (catown == 32) {
-                    document.getElementById("cat").innerHTML =
+                else if (carown == 32) {
+                    document.getElementById("car").innerHTML =
                     "32" + "🛸-Soucoupes volantes: MAX | + 42M$/clique";
                     
                     moneyup += 42000000;
@@ -310,76 +310,76 @@ function upgrade(name) {
 
     }
 
-    if (name == "worker") {
+    if (name == "heli") {
 
-        if (money >= workercost && workerown <= 22) {
+        if (money >= helicost && heliown <= 22) {
 
-            if (workerown <= 5) {
-                msec += 100 * workadd;
-                workadd++;
-                wboost = 100;
-            } else if (workerown == 6) {
-                msec += 100 * workadd;
-                workadd++;
-                wboost = 15000;
-            } else if (workerown <= 11) {
-                msec += 15000 * workadd;
-                workadd++;
-                wboost = 15000;
-            } else if (workerown == 12) {
-                msec += 15000 * workadd;
-                workadd++;
-                wboost = 150000;
-            } else if (workerown <= 20) {
-                msec += 150000 * workadd;
-                workadd++;
-                wboost = 150000;
-            } else if (workerown == 21) {
-                msec += 150000 * workadd;
-                workadd++;
-                wboost = 3000000;
-            } else if (workerown <= 22) {
-                msec += 3000000 * workadd;
-                workadd++;
-                wboost = 3000000;
-            } else if (workerown == 22) {
-                msec += 3000000 * workadd;
-                workadd++;
-                wboost = 5000000;
+            if (heliown <= 5) {
+                msec += 100 * heliadd;
+                heliadd++;
+                hboost = 100;
+            } else if (heliown == 6) {
+                msec += 100 * heliadd;
+                heliadd++;
+                hboost = 15000;
+            } else if (heliown <= 11) {
+                msec += 15000 * heliadd;
+                heliadd++;
+                hboost = 15000;
+            } else if (heliown == 12) {
+                msec += 15000 * heliadd;
+                heliadd++;
+                hboost = 150000;
+            } else if (heliown <= 20) {
+                msec += 150000 * heliadd;
+                heliadd++;
+                hboost = 150000;
+            } else if (heliown == 21) {
+                msec += 150000 * heliadd;
+                heliadd++;
+                hboost = 3000000;
+            } else if (heliown <= 22) {
+                msec += 3000000 * heliadd;
+                heliadd++;
+                hboost = 3000000;
+            } else if (heliown == 22) {
+                msec += 3000000 * heliadd;
+                heliadd++;
+                hboost = 5000000;
             }
              else {
-                msec += 5000000 * workadd;
-                workadd++;
-                wboost = 5000000;
+                msec += 5000000 * heliadd;
+                heliadd++;
+                hboost = 5000000;
 
             }
-            workerown += 1;
-            money -= workercost;
-            workercost = workercost * 2;
+            heliown += 1;
+            money -= helicost;
+            helicost = helicost * 2;
 
-            if (workerown <= 1 && workerown != 23) {
-                document.getElementById("worker").innerHTML =
-                    workerown + "🚁-Hélicoptère: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
+            if (heliown <= 1 && heliown != 23) {
+                document.getElementById("heli").innerHTML =
+                    heliown + "🚁-Hélicoptère: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";
             }
             else {
-                if (workerown != 23){
-                document.getElementById("worker").innerHTML =
-                    workerown + "🚁-Hélicoptères: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+                if (heliown != 23){
+                document.getElementById("heli").innerHTML =
+                    heliown + "🚁-Hélicoptères: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
 
-                if(workerown > 12 && workerown <= 21 ){
-                document.getElementById("worker").innerHTML =
-                    workerown + "🛩️-Avions: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+                if(heliown > 12 && heliown <= 21 ){
+                document.getElementById("heli").innerHTML =
+                    heliown + "🛩️-Avions: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
 
-                else if(workerown > 21 && workerown != 23){
-                    document.getElementById("worker").innerHTML =
-                        workerown + "🚀-Fusée: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";}
+                else if(heliown > 21 && heliown != 23){
+                    document.getElementById("heli").innerHTML =
+                        heliown + "🚀-Fusée: " + addcomma(helicost) + " | +" + addcomma(heliadd * hboost) + "/sec";}
             }
 
 
 
         }
-        else if (workerown == 23) {
-            document.getElementById("worker").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";
+        else if (heliown == 23) {
+            document.getElementById("heli").innerHTML = "23" + "🚀-Fusée: MAX | +35% de co2 :( ";
         }
     }
 

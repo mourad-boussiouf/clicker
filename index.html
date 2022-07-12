@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -14,23 +13,22 @@
 
 <body onbeforeunload="return closingCode()">
 
-
 <div class='center'>
     <img class="micky" src="michaelbayfacefirst.png">
     <h1 id='total'>Budgets de production: 0 $</h1>
     <h5 id="click">$/clique: 1 | $/sec: 0</h5>
 
     <p id = 'instructions'>Bienvenue sur <b>Michael Bay Simulator !</b> Vous devez époustoufler le public grâce à vos effets spéciaux afin
-    d'augumenter vos budgets de production futurs ! Bon chance (lol).</p>
+    d'augumenter vos budgets de production futurs ! Bon chance (lol). Vous trouverez le répertoire GITHUB en bas de la page ainsi qu'un rappel de votre score.</p>
 
     <img id = "explosion" class="round" src="explosionclicker.png" width="150" onclick='clicked()'>
 
     <br><br>
     <button title ="Level max = 42 ... :)" id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;">👷‍♀️0-Artificier: 10 | double vos $/clique</button>
     <br><br>
-    <button title ="Level max = 32." id='cat' class="round" onclick='upgrade("clicker cat")' style="font-family:courier;">🚓0-Voiture: 25 | +10/sec</button>
+    <button title ="Level max = 32." id='car' class="round" onclick='upgrade("clicker car")' style="font-family:courier;">🚓0-Voiture: 25 | +10/sec</button>
     <br><br>
-    <button title ="Level max = 23." id='worker' class="round" onclick='upgrade("worker")' style="font-family:courier;">🚁0-Hélicoptère: 10000 | +2000/sec</button><br><br>
+    <button title ="Level max = 23." id='heli' class="round" onclick='upgrade("heli")' style="font-family:courier;">🚁0-Hélicoptère: 10000 | +2000/sec</button><br><br>
 
     <button class="localstorage" onclick="save()">Sauvegarder</button><br><br>
     <button class="localstorage" onclick="load()">Charger</button>
@@ -40,15 +38,18 @@
     <img class="micky2" src="michaelbayface.png">
 </div>
 <div class = "space"></div>
-<footer>
-<div id='total2' class = "score2">
-    Budgets de production: 0 $
-</div>
-
-</footer>
+    <footer>
+        <div id='total2' class = "score2">
+        Budgets de production: 0 $   
+        </div>
+    </footer>
 
 
 </body>
 </meta>
-
+<div class = "github">
+<a href="https://github.com/mourad-boussiouf/clicker"><img class ="githublogo" src = "https://www.svgrepo.com/show/303615/github-icon-1-logo.svg"></a>
+<a href="https://github.com/mourad-boussiouf/clicker"><img class ="githublogo" src = "https://www.svgrepo.com/show/303615/github-icon-1-logo.svg"></a>
+<a href="https://github.com/mourad-boussiouf/clicker"><img class ="githublogo" src = "https://www.svgrepo.com/show/303615/github-icon-1-logo.svg"></a>
+</div>
 </html>
